@@ -22,7 +22,7 @@ public class JogoDaVelha {
 
             boolean canPlace = false;
             do {
-                System.out.println("Digite onde você deseja colocar um X");
+                System.out.println("Digite onde você deseja colocar um X [Linha][Coluna]");
                 place[0] = scanner.nextInt();
                 place[1] = scanner.nextInt();
 
@@ -53,6 +53,7 @@ public class JogoDaVelha {
             if (!verificarVencedor(game) || !verificarEmpate(game)) {
                 break;
             }
+         
 
         } while (continua);
 
@@ -66,12 +67,20 @@ public class JogoDaVelha {
     }
 
     public static void imprimirJogo(char[][] game) {
+    	
+    	System.out.println("________________________");
+
+    	System.out.println("JOGO DA VELHA");
+    	System.out.println("COLUNAS-   0  1  2");
         for (int linha = 0; linha < game.length; linha++) {
+        	System.out.printf("Linha %d - ", linha);
             for (int coluna = 0; coluna < game[linha].length; coluna++) {
                 System.out.printf("[%s]", game[linha][coluna]);
             }
             System.out.println();
         }
+    	System.out.println("________________________\n");
+
     }
 
     public static boolean verificarVencedor(char[][] game) {
